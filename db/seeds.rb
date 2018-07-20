@@ -9,3 +9,4 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+# meal = ([{meal: 'Pancakes', breakfast: true, user_id: 1}, {meal: 'Scrammbled Eggs', breakfast: true, user_id: 1}, {meal: 'Omlet', breakfast: true, user_id: 1}])
