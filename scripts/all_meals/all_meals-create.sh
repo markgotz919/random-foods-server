@@ -1,6 +1,7 @@
 #!/bin/bash
 
 curl --include --request POST "http://localhost:4741/all_meals/" \
+  --header "Authorization: Token token=${TOKEN}" \
   --header "Content-Type: application/json" \
   --data '{
     "all_meal": {
@@ -8,7 +9,7 @@ curl --include --request POST "http://localhost:4741/all_meals/" \
     "breakfast": false,
     "lunch": true,
     "dinner": false,
-    "user": 1 
+    "user_id": 1 
     }
   }'
 

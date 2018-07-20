@@ -1,4 +1,4 @@
-class AllMealsController < ApplicationController
+class AllMealsController < OpenReadController
   before_action :set_all_meal, only: [:show, :update, :destroy]
 
   # GET /all_meals
@@ -15,7 +15,8 @@ class AllMealsController < ApplicationController
 
   # POST /all_meals
   def create
-    @all_meal = AllMeal.new(all_meal_params)
+    #@all_meal = AllMeal.new(all_meal_params)
+    @all_meal = current_user.all_meals.build(all_meal_params)
 
     if @all_meal.save
       render json: @all_meal, status: :created, location: @all_meal
@@ -46,6 +47,6 @@ class AllMealsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def all_meal_params
-      params.require(:all_meal).permit(:meal, :breakfast, :lunch, :dinner, :user)
+      params.require(:all_meal).permit(:meal, :breakfast, :lunch, :dinner, :user_id)
     end
 end
