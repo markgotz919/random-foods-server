@@ -5,7 +5,7 @@ curl --include --request POST "http://localhost:4741/all_meals/" \
   --header "Content-Type: application/json" \
   --data '{
     "all_meal": {
-    "meal": "Ham and cheese sandwhich",
+    "meal": "tofu sandwhich",
     "breakfast": false,
     "lunch": true,
     "dinner": false,
