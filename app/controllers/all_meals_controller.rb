@@ -1,9 +1,9 @@
-class AllMealsController < OpenReadController
+class AllMealsController < ProtectedController
   before_action :set_all_meal, only: [:show, :update, :destroy]
 
   # GET /all_meals
   def index
-    @all_meals = AllMeal.all
+    @all_meals = current_user.all_meals
 
     render json: @all_meals
   end
@@ -42,11 +42,12 @@ class AllMealsController < OpenReadController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_all_meal
-      @all_meal = AllMeal.find(params[:id])
+      @all_meal = current_user.meals.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
     def all_meal_params
       params.require(:all_meal).permit(:meal, :breakfast, :lunch, :dinner, :user_id)
     end
+
 end
