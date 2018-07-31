@@ -42,7 +42,7 @@ class AllMealsController < ProtectedController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_all_meal
-      @all_meal = current_user.meals.find(params[:id])
+      @all_meal = current_user.all_meals.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
